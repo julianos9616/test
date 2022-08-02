@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{parent()}}
+
+<br>
+<h3>Realizar compra!</h3>
+
+
+<br>
+<hr>
+
+{# {{ dump(customers) }} #}
+
+<div class="container">
+    <div class="form-control">
+        {{form_start(form)}}
+                    
+        {{form_end(form)}}
+    </div>
+</div>
+{% endblock %}

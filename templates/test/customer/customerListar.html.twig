@@ -1,0 +1,42 @@
+
+{% extends 'base.html.twig' %}
+
+{# {% extends 'home/index.html.twig' %} #}
+{% block body %}
+{{parent()}}
+    <div class="container">
+        <br>
+        <h3>Listado de clientes registrados en el sistema</h3>
+        <br><br>
+        <div>
+            <button type="button" class="btn btn-success">
+                <a href="/test/customer/crear">Crear</a>
+            </button>
+            <button type="button" class="btn btn-danger">
+                <a href="/test/customer/eliminar">Eliminar</a>
+            </button>
+            <button type="button" class="btn btn-warning">
+                <a href="/test/customer/actualizar">Editar</a>
+            </button>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Nombre</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                    <tr>  
+                        <th scope="row">{{ customer.id }}</th>
+                        <td>{{ customer.documento }}</td>
+                        <td>{{ customer.nombres }}</td>
+                    </tr>  
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
+

@@ -38,6 +38,31 @@ class ProductRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    
+    //================================== CONSULTAS SQL===============================
+
+    //Clasificación de los primeros 5 clientes con más compras en el mes
+    public function clasificacionCincoPrimerosClientes(){
+        return $this->getEntityManager()->createQuery('
+        SELECT customer.nombres, (compra.valor * compra.cantidad_producto_comprado) AS total FROM customer INNER JOIN compra ON customer.id = compra.id_customer_id ORDER BY total DESC LIMIT 5;')
+        ->getResult();
+    }
+
+    //Clasificación de los primeros 5 productos mas vendidos en el mes
+    public function clasificacionCincoPrimerosProductos(){
+        return $this->getEntityManager()->createQuery('
+        SELECT product.nombre, (compra.valor * compra.cantidad_producto_comprado) AS total FROM product INNER JOIN compra ON product.id = compra.id_product_id ORDER BY total DESC LIMIT 5;')
+        ->getResult();
+    }
+
+
+    // Mostrar el valor total por producto y por cliente comprados en un rango de fechas
+    public function buscarClientesConMasVentas(){
+        return $this->getEntityManager()->createQuery('
+        SELECT customer.nombres, product.nombre as NombreProducto,product.precio * product.cantidad as totalComprado 
+        FROM product INNER JOIN customer ON product.customer_id = customer.id;')
+        ->getResult();
+    }
 
 //    /**
 //     * @return Product[] Returns an array of Product objects

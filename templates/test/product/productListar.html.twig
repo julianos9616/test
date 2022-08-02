@@ -1,0 +1,47 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{parent()}}
+    <div class="container">
+        <br>
+        <h3>Listado de productos registrados en el sistema</h3>
+        <br><br>
+        <div>
+            <button type="button" class="btn btn-success">
+                <a href="/test/product/crear">Crear</a>
+            </button>
+            <button type="button" class="btn btn-danger">
+                <a href="/test/product/eliminar">Eliminar</a>
+            </button>
+            <button type="button" class="btn btn-warning">
+                <a href="/test/product/actualizar">Editar</a>
+            </button>
+        </div>
+        <table class="table table-dark table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>  
+                        <th scope="row">{{ product.id }}</th>
+                        <td>{{ product.codigo }} </td>
+                        <td>{{ product.nombre }} </td>
+                        <td>{{ product.precio }} </td>
+                        <td>{{ product.cantidad }} </td>
+                        <td>{{ product.stock }} </td>
+                    </tr>  
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
+

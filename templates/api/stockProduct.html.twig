@@ -1,0 +1,42 @@
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{parent()}}
+    <div class="container">
+        <br>
+        <h3>A continuación podrás ver los productos con stock en el sistema</h3>
+        <br><br>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    {%if product.stock > 0 %}
+                        <tr>  
+                            <td scope="row">{{ product.id }} </td>
+                            <td>{{ product.codigo }} </td>
+                            <td>{{ product.nombre }} </td>
+                            <td>{{ product.precio }} </td>
+                            <td>{{ product.cantidad }} </td>
+                            <td>{{ product.stock }}</td>
+                        </tr>
+                    {% else%}
+                     {# Actualmente no hay stock de {{product.nombre}} <br> #}
+                    {% endif %}   
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
+

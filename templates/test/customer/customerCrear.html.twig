@@ -1,0 +1,24 @@
+{# this tag only applies to the forms defined in this template #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{parent()}}
+
+<br>
+<h3>Creación de clientes</h3>
+
+
+<br>
+<hr>
+
+{# {{ dump(customers) }} #}
+
+<div class="form-control">
+    {{form_start(form)}}
+                
+    {{form_end(form)}}
+</div>
+{% endblock %}

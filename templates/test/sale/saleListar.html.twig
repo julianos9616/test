@@ -1,0 +1,40 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{parent()}}
+    <div class="container">
+        <br>
+        <h3>Listado de tiendas registrados en el sistema</h3>
+        <br><br>
+        <div>
+            <button type="button" class="btn btn-success">
+                <a href="/test/sale/crear">Crear</a>
+            </button>
+            <button type="button" class="btn btn-danger">
+                <a href="/test/sale/eliminar">Eliminar</a>
+            </button>
+            <button type="button" class="btn btn-warning">
+                <a href="/test/sale/actualizar">Editar</a>
+            </button>
+        </div>
+        <table class="table table-success table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for sale in sales %}
+                    <tr>  
+                        <th scope="row">{{ sale.id }}</th>
+                        <td>{{ sale.nombreTienda }}</td>
+                    </tr> 
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
+
