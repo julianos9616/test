@@ -29,14 +29,14 @@ class Compra
     // #[ORM\OneToOne(inversedBy: 'idSale', cascade: ['persist', 'remove'])]
     // private ?Sale $idSale = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Customer $idCustomer = null;
+    // #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    // private ?Customer $idCustomer = null;
 
-    #[ORM\OneToOne(inversedBy: 'idProduct', cascade: ['persist', 'remove'])]
-    private ?Product $idProduct = null;
+    // #[ORM\OneToOne(inversedBy: 'idProduct', cascade: ['persist', 'remove'])]
+    // private ?Product $idProduct = null;
 
-    #[ORM\ManyToOne(inversedBy: 'idCompra')]
-    private ?Sale $idCompra = null;
+    // #[ORM\ManyToOne(inversedBy: 'idCompra')]
+    // private ?Sale $idCompra = null;
 
 
     public function __construct($CantidadProductoComprado=null,$valor=null,$fechaCompra=null,$idCliente=null,$idProducto=null,$idTienda=null)

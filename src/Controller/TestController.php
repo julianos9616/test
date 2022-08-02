@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Product;
 use App\Entity\Customer;
 use App\Entity\Sale;
-use App\Entity\Compra;
+// use App\Entity\Compra;
 
 //Importación doctrine
 use Doctrine\Persistence\ManagerRegistry;
